@@ -47,5 +47,10 @@ namespace Site
 			var controllerFactory = new WindsorControllerFactory(_container.Kernel);
 			ControllerBuilder.Current.SetControllerFactory(controllerFactory);
 		}
+
+		protected void Application_End()
+		{
+			_container.Dispose();
+		}
 	}
 }
